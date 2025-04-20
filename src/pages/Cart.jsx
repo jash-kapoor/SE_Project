@@ -2,6 +2,7 @@ import React from 'react';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import CartItem from '../components/CartItem';
+import './cart.css'; // Import the CSS file
 
 const Cart = () => {
   const { cartItems, clearCart } = useCart();
@@ -13,25 +14,19 @@ const Cart = () => {
 
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div style={{ 
-        textAlign: 'center', 
-        padding: '50px',
-        backgroundColor: '#fff',
-        borderRadius: '8px',
-        margin: '20px'
-      }}>
-        <h2>Your cart is empty</h2>
+      <div className="empty-cart">
+        <div className="empty-cart-icon">
+          🛍️
+        </div>
+        <h2 className="empty-cart-title">
+          Your Shopping Cart is Empty
+        </h2>
+        <p className="empty-cart-text">
+          Explore our collection of luxury watches
+        </p>
         <button 
           onClick={() => navigate('/watches')}
-          style={{
-            padding: '10px 20px',
-            marginTop: '20px',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
+          className="checkout-btn"
         >
           Continue Shopping
         </button>
@@ -40,87 +35,68 @@ const Cart = () => {
   }
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center',
-        marginBottom: '30px'
-      }}>
-        <h1>Shopping Cart ({cartItems.length} items)</h1>
-        <button
+    <div className="cart-container">
+      <div className="cart-header">
+        <h1 className="cart-title">
+          SHOPPING CART <span className="cart-count">({cartItems.length} items)</span>
+        </h1>
+        <button 
           onClick={() => {
             if (window.confirm('Are you sure you want to empty your cart?')) {
               clearCart();
             }
           }}
-          style={{
-            backgroundColor: '#dc3545',
-            color: 'white',
-            padding: '10px 20px',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontSize: '1rem'
-          }}
+          className="clear-cart-btn"
         >
           Clear Cart
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px' }}>
-        <div>
+      <div className="cart-layout">
+        <div className="cart-items">
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
         </div>
 
-        <div style={{
-          backgroundColor: '#f8f8f8',
-          padding: '20px',
-          borderRadius: '8px',
-          height: 'fit-content'
-        }}>
-          <h2 style={{ marginBottom: '20px' }}>Order Summary</h2>
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '15px'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span>Subtotal:</span>
-              <span>₹{subtotal}</span>
+        <div className="order-summary">
+          <h2 className="order-summary-title">
+            ORDER SUMMARY
+          </h2>
+          <div className="summary-details">
+            <div className="summary-row">
+              <span className="summary-label">Subtotal</span>
+              <span className="summary-value">₹{subtotal.toLocaleString()}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span>Shipping:</span>
-              <span>₹{shippingTotal}</span>
+            <div className="summary-row">
+              <span className="summary-label">Shipping</span>
+              <span className="summary-value">₹{shippingTotal.toLocaleString()}</span>
             </div>
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between',
-              borderTop: '1px solid #ddd',
-              paddingTop: '15px',
-              fontWeight: 'bold'
-            }}>
-              <span>Total:</span>
-              <span>₹{total}</span>
+            <div className="summary-total">
+              <span>Total</span>
+              <span>₹{total.toLocaleString()}</span>
             </div>
+          </div>
 
-            <button
-              onClick={() => navigate('/checkout')}
-              style={{
-                backgroundColor: '#28a745',
-                color: 'white',
-                padding: '15px',
-                border: 'none',
-                borderRadius: '5px',
-                fontSize: '1.1rem',
-                cursor: 'pointer',
-                marginTop: '20px'
-              }}
-            >
-              Proceed to Checkout
-            </button>
+          <button 
+            onClick={() => navigate('/checkout')}
+            className="checkout-btn"
+          >
+            Proceed to Checkout
+          </button>
+          <button 
+            onClick={() => navigate('/watches')}
+            className="continue-shopping-btn"
+          >
+            Continue Shopping
+          </button>
+
+          <div className="security-features">
+            <p>
+              🔒 Secure checkout process<br />
+              💳 Multiple payment options<br />
+              🚚 Express delivery available
+            </p>
           </div>
         </div>
       </div>
@@ -128,4 +104,4 @@ const Cart = () => {
   );
 };
 
-export default Cart; 
+export default Cart;

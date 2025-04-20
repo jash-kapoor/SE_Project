@@ -1,4 +1,4 @@
-LuxWatch 🕰️ - E-commerce Watch Store LuxWatch is a full-stack e-commerce website showcasing luxury watches. The watches are stored in a MongoDB database and fetched via an Express.js API, then displayed dynamically using React.
+LuxWatch 🕰️ - E-commerce Watch Store LuxWatch is a full-stack e-commerce website showcasing Timeless Elegance. The watches are stored in a MongoDB database and fetched via an Express.js API, then displayed dynamically using React.
 
 Features ✅ Watches stored and retrieved from a MongoDB-based API
 

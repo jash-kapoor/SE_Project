@@ -1,45 +1,45 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './Footer.css'; // Import the new stylesheet
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-content">
+      <div className="footer-container">
         <div className="footer-section">
-          <h3>About Us</h3>
-          <p>Luxury Watches is your premier destination for high-end timepieces.</p>
+          <h3 className="footer-heading">About Us</h3>
+          <p className="footer-text">
+            Timeless Elegance is your premier destination for high-end timepieces, offering exquisite craftsmanship and unparalleled luxury.
+          </p>
         </div>
 
         <div className="footer-section">
-          <h3>Quick Links</h3>
-            <Link to="/">Home</Link>
-            <br></br> 
-            <Link to="/watches">Watches</Link>
-            <br></br>
-            <Link to="/checkout">Cart</Link>
-            <br></br>
+          <h3 className="footer-heading">Quick Links</h3>
+          <nav className="footer-nav">
+            <Link to="/" className="footer-link">Home</Link>
+            <Link to="/watches" className="footer-link">Watches</Link>
+            <Link to="/checkout" className="footer-link">Cart</Link>
+          </nav>
         </div>
 
         <div className="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: info@luxurywatches.com</p>
-          <p>Phone: (555) 123-4567</p>
+          <h3 className="footer-heading">Contact Us</h3>
+          <p className="footer-contact"><span>Email:</span> info@timeless.elegance.com</p>
+          <p className="footer-contact"><span>Phone:</span> (078) 123-4567</p>
         </div>
 
         <div className="footer-section">
-          <h3>Follow Us</h3>
-          <div className="social-links">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <br></br>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <br></br>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <br></br>
+          <h3 className="footer-heading">Follow Us</h3>
+          <div className="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-link">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="footer-link">Twitter</a>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p className="footer-text">&copy; 2025 Luxury Watches. All rights reserved.</p>
+        <p className="footer-copy">&copy; 2025 Timeless Elegance. All rights reserved.</p>
       </div>
     </footer>
   );
