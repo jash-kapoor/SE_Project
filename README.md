@@ -11,6 +11,6 @@ Features
 React, Express.js, MongoDB, Node.js, CSS
 
 🚀 Live Demo:
-https://luxury-watch-kappa.vercel.app/
+https://se-project-drab.vercel.app/
 
 Feel free to star ⭐ the repository and contribute! 🚀
